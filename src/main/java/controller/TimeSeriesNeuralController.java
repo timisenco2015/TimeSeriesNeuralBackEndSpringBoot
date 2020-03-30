@@ -23,7 +23,7 @@ public class TimeSeriesNeuralController
 	@Autowired
 	TimeSeriesNeuralService tSNService;
 	
-
+	// imports session files
 	@PostMapping("/importSessionJSON")
 	@ResponseBody
 	public <T> Container<T> importSessionJSON(@RequestParam("file") MultipartFile file) throws IOException, Exception 
@@ -33,7 +33,7 @@ public class TimeSeriesNeuralController
 	}
 	
 	
-	
+	//import cells files
 	@PostMapping("/importCellsCSV")
 	@ResponseBody
 	public  <T> Container<T> importCellsCSV(@RequestParam("file") MultipartFile file,@RequestParam("sessionId")String sessionId) throws IOException, Exception 
@@ -42,7 +42,7 @@ public class TimeSeriesNeuralController
 		
 	}
 	
-	
+	//import gpios files
 	@PostMapping("/importGPIOCSV")
 	@ResponseBody
 	public  <T> Container<T> importGPIOCSV(@RequestParam("file") MultipartFile file,@RequestParam("sessionId")String sessionId) throws IOException, Exception 
@@ -53,7 +53,7 @@ public class TimeSeriesNeuralController
 	
 	
 	
-	
+	//get session details by experimental name, start date and end date
 	@GetMapping("/sessionFullDetails")
 	@ResponseBody
 	public <T> Container<T> getSessionFullDetails(@RequestParam("experimenterName")String experimenterName,@RequestParam("startDate")String startDate,@RequestParam("endDate")String endDate)
@@ -62,6 +62,7 @@ public class TimeSeriesNeuralController
 	}
 	
 	
+	// get bout moment (This is the third select question - bonus question)
 	@GetMapping("/boutMomentDetails")
 	@ResponseBody
 	public <T> Container<T> getBoutMoment(@RequestParam("sessionId")String sessionId)
@@ -70,7 +71,7 @@ public class TimeSeriesNeuralController
 	}
 	
 	
-
+	//get first two rows from cells table using session id
 	@GetMapping("/firstTwoCellsNeuralData")
 	@ResponseBody
 	public <T> Container<T> getFirstTwoCellsNeuralData(@RequestParam("sessionId")String sessionId)

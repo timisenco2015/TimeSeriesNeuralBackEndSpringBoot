@@ -50,6 +50,7 @@ public class TimeSeriesNeuraDAOlmpl<T> implements TimeSeriesNeuralDAO
 	GPIORepo gPIORepo;
 	
 	
+	// import session files and populate session table
 	@SuppressWarnings({ "hiding", "unchecked", "null" })
 	@Override
 	public <T> Container<T>  sessionJSONImport(MultipartFile file)
@@ -184,7 +185,7 @@ public class TimeSeriesNeuraDAOlmpl<T> implements TimeSeriesNeuralDAO
 		
 	}
 	
-	
+	//read cell files and populate session table
 	@SuppressWarnings({ "hiding", "unchecked", "unused" })
 	@Override
 	public <T> Container<T> cellsCSVImport(MultipartFile file, String sessionId)
@@ -287,6 +288,7 @@ public class TimeSeriesNeuraDAOlmpl<T> implements TimeSeriesNeuralDAO
 	}
 	
 	
+	//import gpio files and populate gpiotable
 	@SuppressWarnings({ "unchecked", "hiding", "unused" })
 	@Override
 	public <T> Container<T> gPIOCSVImport(MultipartFile file, String sessionId)
@@ -374,6 +376,7 @@ public class TimeSeriesNeuraDAOlmpl<T> implements TimeSeriesNeuralDAO
 	}
 		
 	
+	// get session details for the first select query question
 	@SuppressWarnings({ "unchecked", "hiding", "unused" })
 	@Override
 	public <T> Container<T> getSessionFullDetails(String experimenterName, String startDate, String endDate)
@@ -421,6 +424,7 @@ public class TimeSeriesNeuraDAOlmpl<T> implements TimeSeriesNeuralDAO
 	}
 	
 	
+	//get the bout moment for the third select question
 	@SuppressWarnings({ "unchecked", "hiding", "unused" })
 	@Override
 	public <T> Container<T> getBoutMoment(String sessionId)
@@ -469,6 +473,7 @@ public class TimeSeriesNeuraDAOlmpl<T> implements TimeSeriesNeuralDAO
 		}
 	}
 	
+	// get first two rows from cells table using sessiod id
 	@SuppressWarnings({ "unchecked", "hiding", "unused" })
 	@Override
 	public <T> Container<T> getFirstTwoCellsNeuralData(String sessionId)
