@@ -10,7 +10,7 @@
 	</parent>
 	<groupId>com.example</groupId>
 	<artifactId>ca.inscopixCodeChallenge.nscopixCodeChallengrAPIs</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	 <version>inscopixCodeChallengrAPIs</version>
 	<packaging>war</packaging>
 	<name>ca.inscopixCodeChallenge.nscopixCodeChallengrAPIs</name>
 	<description>InscopixCodeChallengrAPIs</description>
@@ -20,6 +20,12 @@
 </properties>
 
 	<dependencies>
+	<dependency>
+  <groupId>org.mockito</groupId>
+  <artifactId>mockito-core</artifactId>
+ 
+  <scope>compile</scope>
+</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
@@ -37,7 +43,6 @@
 <dependency>
     <groupId>com.google.code.gson</groupId>
     <artifactId>gson</artifactId>
-    
 </dependency>
 <dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -64,11 +69,17 @@
     <artifactId>spring-boot-starter-data-jpa</artifactId>
      
 </dependency>
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-tomcat</artifactId>
-			<scope>provided</scope>
-		</dependency>
+	<dependency>
+    <groupId>org.junit.jupiter</groupId>
+    <artifactId>junit-jupiter-engine</artifactId>
+    <scope>test</scope>
+</dependency>
+<dependency>
+    <groupId>org.junit.jupiter</groupId>
+    <artifactId>junit-jupiter-api</artifactId>
+    <scope>test</scope>
+</dependency>
+		
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
@@ -94,6 +105,7 @@
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
 		</plugins>
+		 <finalName>inscopixCodeChallengrAPIs</finalName>
 	</build>
 
 </project>

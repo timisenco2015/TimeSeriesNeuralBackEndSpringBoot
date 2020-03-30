@@ -15,7 +15,7 @@ import domain.Container;
 import service.TimeSeriesNeuralService;
 
 @RestController
-@CrossOrigin(origins = "*", maxAge = 3600)
+@CrossOrigin(origins = "*")
 @RequestMapping("/neuron")
 public class TimeSeriesNeuralController 
 {
