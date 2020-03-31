@@ -44,4 +44,21 @@ public class TimeSeriesNeuralServiceImpl implements TimeSeriesNeuralService
 	{
 		return timeSeriesNeuralDAO.getFirstTwoCellsNeuralData(sessionId);
 	}
+	
+	public <T> Container<T> cellsCSVImportFromFileLocation(String fileLocation, String sessionId)
+	{
+		return timeSeriesNeuralDAO.cellsCSVImportFromFileLocation(fileLocation,sessionId);
+	}
+	
+	public <T> Container<T> sessionImportFromFileLocation(String fileLocation)
+	{
+		return timeSeriesNeuralDAO.sessionImportFromFileLocation(fileLocation);
+		
+	}
+	
+	public <T> Container<T> gpiosCSVImportFromFileLocation(String fileLocation, String sessionId)
+	{
+		return timeSeriesNeuralDAO.gpiosCSVImportFromFileLocation(fileLocation, sessionId);
+	}
+	
 }

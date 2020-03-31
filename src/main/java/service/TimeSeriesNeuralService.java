@@ -11,4 +11,8 @@ public interface TimeSeriesNeuralService
 	public <T> Container<T> getSessionFullDetails(String experimenterName, String startDate, String endDate);
 	public <T> Container<T> getBoutMoment(String sessionId);
 	public <T> Container<T> getFirstTwoCellsNeuralData(String sessionId);
+	public <T> Container<T> cellsCSVImportFromFileLocation(String fileLocation, String sessionId);
+	public <T> Container<T> sessionImportFromFileLocation(String fileLocation);
+	public <T> Container<T> gpiosCSVImportFromFileLocation(String fileLocation, String sessionId);
+	
 }

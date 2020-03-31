@@ -51,6 +51,37 @@ public class TimeSeriesNeuralController
 		
 	}
 	
+	//import cells files by providing file location
+	@PostMapping("/importCellsCSVFromLocation")
+	@ResponseBody
+	public  <T> Container<T> importCellsCSVImportFromFileLocation(@RequestParam("fileName")String fileName,@RequestParam("sessionId")String sessionId) throws IOException, Exception 
+	{
+		return tSNService.cellsCSVImportFromFileLocation(fileName,sessionId);
+		
+	}
+	
+	
+	
+	//import sessions files by providing file location
+	@PostMapping("/importSessionsFromLocation")
+	@ResponseBody
+	public  <T> Container<T> importSessionFromFileLocation(@RequestParam("fileName")String fileName) throws IOException, Exception 
+	{
+		return tSNService.sessionImportFromFileLocation(fileName);
+			
+	}
+	
+	
+	//import GPIOS files by providing file location
+	@PostMapping("/importGpiosCSVFromFileLocation")
+	@ResponseBody
+	public  <T> Container<T> importGpiosCSVFromFileLocation(@RequestParam("fileName")String fileName,@RequestParam("sessionId")String sessionId) throws IOException, Exception 
+	{
+		return tSNService.gpiosCSVImportFromFileLocation(fileName, sessionId);
+				
+	}
+	
+	
 	
 	
 	//get session details by experimental name, start date and end date
@@ -78,5 +109,8 @@ public class TimeSeriesNeuralController
 	{
 		return tSNService.getFirstTwoCellsNeuralData(sessionId);
 	}
+	
+	
+	
 	
 }
