@@ -1,16 +1,20 @@
 package controller;
 
 import java.io.IOException;
+import java.util.Map;
 
+import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
+
 import domain.Container;
 import service.TimeSeriesNeuralService;
 
@@ -52,32 +56,34 @@ public class TimeSeriesNeuralController
 	}
 	
 	//import cells files by providing file location
-	@PostMapping("/importCellsCSVFromLocation")
+	@PostMapping(value ="/importCellsCSVFromLocation",consumes = "application/json")
 	@ResponseBody
-	public  <T> Container<T> importCellsCSVImportFromFileLocation(@RequestParam("fileName")String fileName,@RequestParam("sessionId")String sessionId) throws IOException, Exception 
+	public  <T> Container<T> importCellsCSVImportFromFileLocation(@RequestBody Map<String, String> searchParameters) throws IOException, Exception 
 	{
-		return tSNService.cellsCSVImportFromFileLocation(fileName,sessionId);
+		return tSNService.cellsCSVImportFromFileLocation(searchParameters.get("fileName"),searchParameters.get("sessionId"));
 		
 	}
 	
 	
 	
 	//import sessions files by providing file location
-	@PostMapping("/importSessionsFromLocation")
+	@PostMapping( value ="/importSessionsFromLocation" , consumes = "application/json")
 	@ResponseBody
-	public  <T> Container<T> importSessionFromFileLocation(@RequestParam("fileName")String fileName) throws IOException, Exception 
+	public  <T> Container<T> importSessionFromFileLocation(@RequestBody Map<String, String> searchParameters) throws IOException, Exception 
 	{
-		return tSNService.sessionImportFromFileLocation(fileName);
+		
+		return tSNService.sessionImportFromFileLocation(searchParameters.get("fileName"));
 			
 	}
 	
 	
 	//import GPIOS files by providing file location
-	@PostMapping("/importGpiosCSVFromFileLocation")
+	@PostMapping(value ="/importGpiosCSVFromFileLocation", consumes = "application/json")
 	@ResponseBody
-	public  <T> Container<T> importGpiosCSVFromFileLocation(@RequestParam("fileName")String fileName,@RequestParam("sessionId")String sessionId) throws IOException, Exception 
+	public  <T> Container<T> importGpiosCSVFromFileLocation(@RequestBody Map<String, String> searchParameters) throws IOException, Exception 
 	{
-		return tSNService.gpiosCSVImportFromFileLocation(fileName, sessionId);
+		System.out.println(searchParameters);
+		return tSNService.gpiosCSVImportFromFileLocation(searchParameters.get("fileName"),searchParameters.get("sessionId") );
 				
 	}
 	
