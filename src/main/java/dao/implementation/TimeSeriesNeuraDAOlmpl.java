@@ -174,6 +174,7 @@ public class TimeSeriesNeuraDAOlmpl<T> implements TimeSeriesNeuralDAO
 		} 
 		finally 
 		{
+			System.gc();
 			try 
 			{
 				reader.close();
@@ -339,16 +340,13 @@ public class TimeSeriesNeuraDAOlmpl<T> implements TimeSeriesNeuralDAO
 		} 
 		finally 
 		{
-			try 
+			System.gc();
+			if (sc != null) 
 			{
-						
-			} 
-			catch (Exception e) 
-			{
-				e.printStackTrace();
+				sc.close();
 			}
 					
-			}
+		}
 				
 			return null;
 					
@@ -433,7 +431,7 @@ public class TimeSeriesNeuraDAOlmpl<T> implements TimeSeriesNeuralDAO
 			} 
 			finally 
 			{
-				
+				System.gc();
 				if (sc != null) 
 				{
 					sc.close();
@@ -546,7 +544,7 @@ public class TimeSeriesNeuraDAOlmpl<T> implements TimeSeriesNeuralDAO
 			
 			finally 
 			{
-						
+				System.gc();		
 				if (sc != null) 
 				{
 							
@@ -650,7 +648,7 @@ public class TimeSeriesNeuraDAOlmpl<T> implements TimeSeriesNeuralDAO
 		} 
 		finally 
 		{
-			
+			System.gc();
 			if (sc != null) 
 			{
 				sc.close();
@@ -743,6 +741,7 @@ public class TimeSeriesNeuraDAOlmpl<T> implements TimeSeriesNeuralDAO
 			{
 				sc.close();
 			}
+			System.gc();
 		}
 			
 	}
