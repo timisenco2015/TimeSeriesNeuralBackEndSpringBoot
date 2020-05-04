@@ -1,4 +1,4 @@
-# ca.inscopixCodeChallenge.inscopixCodeChallengrAPIs
+# TimeSeriesNeuralBackEndSpringBoot
 
 This project was generated with Spring Boot
 
